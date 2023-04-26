@@ -12,6 +12,7 @@ public class ClimateGame implements Game{
     "dnwken", "dhsood", "hjdow"};
     String AnswerBank[] = {"A", "B", "D", "A", "C"};
     String selectedQuestions[] = new String[5];
+    String selectedAnswers[] = new String[5];
     int count = 0;
 
 
@@ -42,6 +43,7 @@ public class ClimateGame implements Game{
             }
             if (!selected && QuestionBank[index] != null){
                 selectedQuestions[count] = QuestionBank[index];
+                selectedAnswers[count] = AnswerBank[index];
                 count++;
             }
 
@@ -50,12 +52,12 @@ public class ClimateGame implements Game{
             System.out.println(selectedQuestions[i]);
             System.out.println("Answer here:");
             String ans = scan.nextLine();
-            if (ans.toUpperCase().equals(AnswerBank[i])){
+            if (ans.toUpperCase().equals(selectedAnswers[i])){
                 System.out.println("Correct!");
                 totalScores++;
             }
             else{
-                System.out.println("Wrong please. The answer is: " + AnswerBank[i]);
+                System.out.println("Wrong please. The answer is: " + selectedAnswers[i]);
             }
         }
     }   
@@ -66,7 +68,8 @@ public class ClimateGame implements Game{
     
     public void ProficiencyScore(){
         
-        int profPercent = (totalScores/attainableScore)*100;
+        double profPercent = (((double)totalScores/(double)attainableScore)*100);
+        System.out.println(profPercent);
     
         if (profPercent >= Excellent){
             System.out.println("Proficiency Level: Excellent");
