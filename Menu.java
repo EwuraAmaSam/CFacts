@@ -1,27 +1,68 @@
+// import java.io.IOException;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Menu {
     
-    public int choice1 = 1;
-    private int choice2 = 2;
+    private static String choice1 = "1";
+    private static String choice2 = "2";
+    private static boolean access = false;
+    private String choice;
+    Scanner scan = new Scanner(System.in);
     
-    public static void main(String[] args){
-        Scanner scan = new Scanner(System.in);
-        System.out.println("Hello. You are welcome to C-Facts. Here, we provide you with accurate information on Climate Change.");
-        System.out.println("If you want to test your knowledge on climate change, type 1.");
-        System.out.println("If you want to read an interesting article, type 2");
-        System.out.print("Type Here:");
-        int choice = scan.nextInt();
-
-        if (choice == 1){
-
-            ClimateGame game = new ClimateGame();
-            game.printQuestions();
-            game.scoreSum();
-
+    public String toString(){
+        return "Welcome";
+        
+    }
+    
+    
+    public void Choice(){
+        while (access == false){
+            System.out.println("Welcome to C-Facts.");
+            System.out.println("We provide you with: ");
+            System.out.println("A) Credible information on climate.");
+            System.out.println("B) A short proficiency quizz on Climate Change ");
+            System.out.println("Kindly press");
+            System.out.println("1) To take a proficiency quiz");
+            System.out.println("2) To generate an article to read.");
+            
+            System.out.println("Enter 1 or 2: ");
+            choice = scan.nextLine();
+            if (choice.equals(choice1)){
+                ClimateGame game = new ClimateGame();
+                game.introMessage();
+                game.printQuestions();
+                game.scoreSum();
+                game.ProficiencyScore();
+                access = true;
+            }
+            else if (choice.equals(choice2)){
+                CFacts scrap = new CFacts();
+                scrap.introMessage();
+                access = true;
+                
+            }
+            else{
+                System.out.println("Please type either 1 or 2");
+                choice = scan.nextLine();
+            }  
         }
+        scan.close();
+    }
+    public static void main(String[] args){
+        Menu menu = new Menu();
+        menu.toString();
+        menu.Choice();
+        
+        
+        
+        
+            
+        
+       
 
 
     }
+   
     
 }
