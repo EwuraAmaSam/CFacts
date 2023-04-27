@@ -18,12 +18,14 @@ public class CFacts implements ArticleFinder{
         System.out.println("Aimed at informing you about climate change.");
         System.out.println("You have the option to read an article or request for a new one.");
         System.out.println("Have Fun!");
+        System.out.println(" ");
 
     }
 
     Scanner scan = new Scanner(System.in);
     public void Article(){
-        System.out.println("Welcome");
+        System.out.println("Hi there!");
+        System.out.println(" ");
         String fileName = "article.txt";
         String fileTitle = "title.txt";
 
@@ -66,22 +68,40 @@ public class CFacts implements ArticleFinder{
         Random random = new Random();
         String getLink = links.get(random.nextInt(links.size()));
         int getIndex = links.indexOf(getLink);
-
-        System.out.println(getLink);
+        System.out.println("Do you want to read this?");
         System.out.println("TITLE: " + titles.get(getIndex));
-        System.out.println("Do you want to read this? y for yes and n for no.");
+        System.out.println(" ");
+        System.out.print("Type y for yes and n for no: ");
+        System.out.println(" ");
         String input = scan.nextLine().trim().toLowerCase();
+
+        while (input.equals("n")){
+            getLink = links.get(random.nextInt(links.size()));
+            getIndex = links.indexOf(getLink);
+            System.out.println("Do you want to read this?");
+            System.out.println("TITLE: " + titles.get(getIndex));
+            System.out.println(" ");
+            System.out.print("Type y for yes and n for no: ");
+            System.out.println(" ");
+            input = scan.nextLine().trim().toLowerCase();
+
+        }
+        
         if (input.equals("y")){
             openLink(getLink);
-            // break;
         }
         else if (input.equals("n")){
             getLink = links.get(random.nextInt(links.size()));
+            getIndex = links.indexOf(getLink);
+            System.out.println("Do you want to read this?");
             System.out.println("TITLE: " + titles.get(getIndex));
+            System.out.println(" ");
+            System.out.print("Type y for yes and n for no: ");
+            System.out.println(" ");
+            input = scan.nextLine().trim().toLowerCase();
         }
         else if (input.equals("exit")){
             System.out.println("Goodbye.");
-            // break;
         }
         else{
             System.out.println("Answer not valid. Enter 'y', 'n' or 'exit'.");
@@ -96,10 +116,7 @@ public class CFacts implements ArticleFinder{
         }
     }
 
-    public static void main (String[] args){
-
-       
-        
+    public static void main (String[] args){        
     }
     
 }

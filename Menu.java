@@ -26,8 +26,9 @@ public class Menu {
             System.out.println("1) To take a proficiency quiz");
             System.out.println("2) To generate an article to read.");
             
-            System.out.println("Enter 1 or 2: ");
+            System.out.print("Enter 1 or 2: ");
             choice = scan.nextLine();
+            System.out.println(" ");
             if (choice.equals(choice1)){
                 ClimateGame game = new ClimateGame();
                 game.introMessage();
@@ -50,19 +51,13 @@ public class Menu {
         }
         scan.close();
     }
+
+    
+
     public static void main(String[] args){
         Menu menu = new Menu();
         menu.toString();
         menu.Choice();
-        
-        
-        
-        
-            
-        
-       
-
-
     }
    
     
