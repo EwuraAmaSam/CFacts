@@ -1,13 +1,17 @@
+/**
+ * @authors: Ewura Ama Sam, Princess Asiru-Bologun, Alvin Harrison-Indome
+ */
 import java.util.Scanner;
 import java.util.Random;
 
 public class ClimateGame implements Game{
 
+    // instance variables
     private int totalScores;
     private int attainableScore = 5;
     private int numQuestions = 5;
     
-
+// String array that contains the questions to be selected at random for the quiz
 String QuestionBank[] = {"How many degree Celsius has the earth warmed up by since 1750? \n A) 1.1 degrees \n B) 2 degrees \n C) 4 degrees",
 "What is the earths current temperature in Celsius? \n A) 16.75C \n B) 20C \n C) 14.18C ",
 "What is global warming? \n A) The long term warming of the planet \n B) The melting of frozen ice on earth \n C) Collection of CO2 in atmosphere",
@@ -29,8 +33,7 @@ String QuestionBank[] = {"How many degree Celsius has the earth warmed up by sin
 "How does global warming affect Antartica? \n A) It increases its sea levels \n B) it causes all the ice there to melt \n C) It causes drought",
 "What is the current strongest source of Nitrogen Dioxide? \n A) Car fumes \n B) Plant waste \n C) Burning fossil fuels"};
 
-
-
+// String arrays that contain answers that correspond to the questions in QuestionBank array
 
 String AnswerBank[] = {
 "A",
@@ -54,17 +57,18 @@ String AnswerBank[] = {
 "B",
 "C"};
 
-
+    // A string array to hold the five questions that would be selected at random from the QuestionBank
     String selectedQuestions[] = new String[5];
+    // A string array to hold the answers that correspond to the questions in selectedQuestions
     String selectedAnswers[] = new String[5];
+    // To keep count of how many questions have been added to selectedQuestions
     int count = 0;
-
-
 
     public ClimateGame(){
         this.totalScores = 0;
     }
 
+    // Prints an introductory message to the user
     public void introMessage(){
         System.out.println("Welcome to the Proficiency quiz.");
         System.out.println("Have fun!");
@@ -73,6 +77,9 @@ String AnswerBank[] = {
     Scanner scan = new Scanner(System.in);
     Random randIndex = new Random();
 
+    /**Until the selectedQuestions array is full, an index in the range of QuestionBank 
+     * is generated at random without repetition. The question with that index is stored 
+     * */
     public void printQuestions(){
         while (count < numQuestions){
             int index = randIndex.nextInt(QuestionBank.length);
@@ -92,22 +99,28 @@ String AnswerBank[] = {
             }
 
         }
+
+        // Printing the selected questions to the user
         for (int i = 0; i < numQuestions; i++){
             System.out.println(selectedQuestions[i]);
             System.out.print("Answer here:");
             String ans = scan.nextLine();
+            // Evaluating the user's answer, whether it corresponds to the answers stored for it
             if (ans.toUpperCase().equals(selectedAnswers[i])){
                 System.out.println("Correct!");
                 System.out.println(" ");
+                // Updating the user's score after each correct answer
                 totalScores++;
             }
             else{
+                // Displaying the answer to the user if they had it wrong
                 System.out.println("Wrong please. The answer is: " + selectedAnswers[i]);
                 System.out.println(" ");
             }
         }
     }   
     
+    // Displaying the total score to the user
     public void scoreSum(){
         System.out.println("Your total score is: " + totalScores);
     }
@@ -115,8 +128,13 @@ String AnswerBank[] = {
     public void ProficiencyScore(){
         
         double profPercent = (((double)totalScores/(double)attainableScore)*100);
-        System.out.println(profPercent);
+        System.out.println("Proficiency Score: " +profPercent);
     
+        /*
+         * Displaying the user's proficiency level by comparing their proficiency score to
+         * already defined thresholds in the Game interface 
+         */
+        
         if (profPercent >= Excellent){
             System.out.println("Proficiency Level: Excellent");
             System.out.println("We recommend that you read advanced articles to boost your knowledge.");
@@ -141,12 +159,14 @@ String AnswerBank[] = {
         }
     }
 
+    //This method gives the user the chance to either go back to the menu or quit the program 
     public void backToMenu(){
         System.out.println("Would you like go back to the menu?");
         System.out.print("Type y go back or any letter to quit: ");
         String redo = scan.nextLine().trim().toLowerCase();
         System.out.println(" ");
         if (redo.equals("y")){
+            // Instantiating the Menu class to call the Choice method
             Menu menu = new Menu();
             menu.Choice();
         }
@@ -157,7 +177,6 @@ String AnswerBank[] = {
     }
 
     public static void main(String[] args){
-        
-        
+            
     }
 }
