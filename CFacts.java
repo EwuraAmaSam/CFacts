@@ -128,8 +128,11 @@ public class CFacts implements ArticleFinder{
 
     /*
      * This method opens the generated link in the browser when the user chooses to read. 
-        The Desktop class has methods like getDesktop and browse. the getDesktop 
-     * 
+     * The Desktop class allows a Java application to launch associated applications 
+     * registered on the native desktop to handle a URI or a file
+     * (Java Doc - https://docs.oracle.com/javase/8/docs/api/java/awt/Desktop.html). 
+     * The Desktop class has methods like getDesktop and browse. The getDesktop class represents 
+     * the desktop environment whilst the browse method launches the link in the default browser 
     */
     public static void openLink(String url){
         try {
