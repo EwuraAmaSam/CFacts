@@ -37,8 +37,9 @@ public class Menu {
                 access = true;
             }
             else if (choice.equals(choice2)){
-                CFacts scrap = new CFacts();
-                scrap.introMessage();
+                CFacts article = new CFacts();
+                article.introMessage();
+                article.Article();
                 access = true;
                 
             }
