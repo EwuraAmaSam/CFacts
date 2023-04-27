@@ -7,12 +7,7 @@ public class ClimateGame implements Game{
     private int attainableScore = 5;
     private int numQuestions = 5;
     
-    // String QuestionBank[] = {"What is the major cause of climate change? a) CO2 b) O2 c) N2", 
-    // "Which gas poses the most threat to the earth? a) O2 b)CO2 c) N2", 
-    // "dnwken", "dhsood", "hjdow"};
-    // String AnswerBank[] = {"A", "B", "D", "A", "C"};
 
-    
 String QuestionBank[] = {"How many degree Celsius has the earth warmed up by since 1750? \n A) 1.1 degrees \n B) 2 degrees \n C) 4 degrees",
 "What is the earths current temperature in Celsius? \n A) 16.75C \n B) 20C \n C) 14.18C ",
 "What is global warming? \n A) The long term warming of the planet \n B) The melting of frozen ice on earth \n C) Collection of CO2 in atmosphere",
@@ -60,9 +55,6 @@ String AnswerBank[] = {
 "C"};
 
 
-
-
-
     String selectedQuestions[] = new String[5];
     String selectedAnswers[] = new String[5];
     int count = 0;
@@ -102,14 +94,16 @@ String AnswerBank[] = {
         }
         for (int i = 0; i < numQuestions; i++){
             System.out.println(selectedQuestions[i]);
-            System.out.println("Answer here:");
+            System.out.print("Answer here:");
             String ans = scan.nextLine();
             if (ans.toUpperCase().equals(selectedAnswers[i])){
                 System.out.println("Correct!");
+                System.out.println(" ");
                 totalScores++;
             }
             else{
                 System.out.println("Wrong please. The answer is: " + selectedAnswers[i]);
+                System.out.println(" ");
             }
         }
     }   
@@ -127,25 +121,43 @@ String AnswerBank[] = {
             System.out.println("Proficiency Level: Excellent");
             System.out.println("We recommend that you read advanced articles to boost your knowledge.");
             System.out.println("You should also join advocacy for Climate Change with this knowledge.");
+            System.out.println(" ");
         }
         else if (profPercent >= Good && profPercent < Excellent){
             System.out.println("Proficiency Level: Good");
             System.out.println("That's great. An article once in a while could push you towards excellent.");
+            System.out.println(" ");
         }
         else if (profPercent >= Average && profPercent < Good){
             System.out.println("Proficiency Level: Average");
             System.out.println("Great but you could do better. Kindly read more material to be well informed.");
-            
+            System.out.println(" ");  
         }
         else if (profPercent < Average){
             System.out.println("Proficiency Level: Low");
             System.out.println("Whoaw. You really need to step up on Climate Change material.");
             System.out.println("We recommend an article a day.");
+            System.out.println(" ");
         }
     }
+
+    public void backToMenu(){
+        System.out.println("Would you like go back to the menu?");
+        System.out.print("Type y go back or any letter to quit: ");
+        String redo = scan.nextLine().trim().toLowerCase();
+        System.out.println(" ");
+        if (redo.equals("y")){
+            Menu menu = new Menu();
+            menu.Choice();
+        }
+        else {
+            System.out.println("Goodbye. See you another time.");
+        }
+
+    }
+
     public static void main(String[] args){
-        // ClimateGame trygame = new ClimateGame();
-        // trygame.printQuestions();
+        
         
     }
 }

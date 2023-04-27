@@ -71,7 +71,7 @@ public class CFacts implements ArticleFinder{
         System.out.println("Do you want to read this?");
         System.out.println("TITLE: " + titles.get(getIndex));
         System.out.println(" ");
-        System.out.print("Type y for yes and n for no: ");
+        System.out.print("Type y for yes and n for no or any other key to exit: ");
         System.out.println(" ");
         String input = scan.nextLine().trim().toLowerCase();
 
@@ -81,7 +81,7 @@ public class CFacts implements ArticleFinder{
             System.out.println("Do you want to read this?");
             System.out.println("TITLE: " + titles.get(getIndex));
             System.out.println(" ");
-            System.out.print("Type y for yes and n for no: ");
+            System.out.print("Type y for yes and n for no or any other key to exit: ");
             System.out.println(" ");
             input = scan.nextLine().trim().toLowerCase();
 
@@ -96,15 +96,12 @@ public class CFacts implements ArticleFinder{
             System.out.println("Do you want to read this?");
             System.out.println("TITLE: " + titles.get(getIndex));
             System.out.println(" ");
-            System.out.print("Type y for yes and n for no: ");
+            System.out.print("Type y for yes and n for no or any other key to exit: ");
             System.out.println(" ");
             input = scan.nextLine().trim().toLowerCase();
         }
-        else if (input.equals("exit")){
-            System.out.println("Goodbye.");
-        }
         else{
-            System.out.println("Answer not valid. Enter 'y', 'n' or 'exit'.");
+            System.out.println("Goodbye.");
         }
     }
 

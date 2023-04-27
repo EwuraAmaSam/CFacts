@@ -35,6 +35,7 @@ public class Menu {
                 game.printQuestions();
                 game.scoreSum();
                 game.ProficiencyScore();
+                game.backToMenu();
                 access = true;
             }
             else if (choice.equals(choice2)){

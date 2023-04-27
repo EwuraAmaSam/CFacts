@@ -14,5 +14,6 @@ public interface Game{
     public void scoreSum();
     public void printQuestions();
     public void ProficiencyScore();
+    public void backToMenu();
 
 }
